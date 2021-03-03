@@ -1,4 +1,4 @@
 from django.forms import BaseForm
 
-class Food(forms.BaseForm):
+class Food(BaseForm):
     pass

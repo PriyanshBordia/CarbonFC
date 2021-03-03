@@ -9,6 +9,11 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+
+import environ
+env = environ.Env()
+environ.Env.read_env()
+
 import os
 from pathlib import Path
 
@@ -23,21 +28,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG', default =  False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [env('ALLOWED_HOSTS'), '127.0.0.1']
 
+ADMINS = []
 
 # Application definition
 
 INSTALLED_APPS = [
-    'CalculatorConfig.apps.'
+    'calculator.apps.CalculatorConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -78,6 +85,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+
+    'development': {
+        'ENGINE': env('TEST_ENGINE'),
+        'NAME': env('TEST_DB_NAME'),
+        'USER': env('TEST_DB_USER'),
+        'PASSWORD': env('TEST_DB_PASSWORD'),
+        'HOST': env('TEST_DB_HOST'),
+        'PORT': env('TEST_DB_PORT'),
     },
 
     'production': {
@@ -126,9 +142,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
+#login redirection to homepage
+LOGIN_REDIRECT_URL = 'home'
+
+#logout redirection to homepage
+LOGOUT_REDIRECT_URL = 'home'
 
 #Send reset pass e-mails
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

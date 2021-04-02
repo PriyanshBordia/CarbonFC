@@ -1,0 +1,1 @@
+web: gunicorn carbonfc.wsgi:application --log-file -

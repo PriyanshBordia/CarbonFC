@@ -5,3 +5,5 @@
 [![GitHub forks](https://img.shields.io/github/forks/PriyanshBordia/CarbonFC)](https://github.com/PriyanshBordia/CarbonFC/network)
 [![GitHub stars](https://img.shields.io/github/stars/PriyanshBordia/CarbonFC)](https://github.com/PriyanshBordia/CsarbonFC/stargazers)
 [![GitHub license](https://img.shields.io/github/license/PriyanshBordia/CarbonFC)](https://github.com/PriyanshBordia/CarbonFC/blob/main/LICENSE)
+[![Documentation Status](https://readthedocs.org/projects/carbonfc/badge/?version=latest)](https://carbonfc.readthedocs.io/en/latest/?badge=latest)
+

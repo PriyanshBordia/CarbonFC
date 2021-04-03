@@ -14,7 +14,6 @@
 
     <div class="container container-fluid text-center mt-3 ml-auto mr-auto">
         <div class="login-action-container justify-content-centre">
-    
             <span><img src="https://img.icons8.com/officel/100/000000/login-as-user.png" /></span>
             <br>
             <h2 class="login-action-head mt-3">Log In to fly high.!</h2>
@@ -31,10 +30,4 @@
             </form>
         </div>
     </div>
-    <form method="POST">
-        {% csrf_token %}
-
-        {{ form.as_p }}
-    </form>
-
 {% endblock %}

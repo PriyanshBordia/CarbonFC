@@ -133,7 +133,7 @@ DATABASES = {
     },
 
     'development': {
-        'ENGINE': env('DEV_ENGINE'),
+        'ENGINE': env('DEV_DB_ENGINE'),
         'NAME': env('DEV_DB_NAME'),
         'USER': env('DEV_DB_USER'),
         'PASSWORD': env('DEV_DB_PASSWORD'),

@@ -1,0 +1,45 @@
+<!-- "templates/calculator/persons.html" -->
+
+{% extends "calculator/format.html" %}
+
+{% block title %}
+    Persons
+{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+    <div class="container container-fluid">
+        <div class="justify-content-center">
+            <h1>Persons</h1>
+            {% if persons %}
+                <table class="center">
+                    <thead>
+                        <tr>
+                            <th>UPIDCFC</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Details</th>
+                        <tr>
+                    </thead>
+                    <tbody>
+                        {% for person in persons %}
+                        <tr>
+                            <td>{{ person.id }}</td>
+                            <td>{{ person.first_name }}</td>
+                            <td>{{ person.last_name }}</td>
+                            <td><a class="btn btn-outline-warning btn-md mt-2 mb-2 ml-2 mr-2" href="{% url 'person' person.id %}"
+                                    role="button">Show</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="alert alert-success" role="alert">No Persons Registered.</div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -37,30 +37,37 @@
     <link rel = "icon" src="https://img.icons8.com/fluent/48/000000/benzene-ring.png" />
     <title> | CarbonFC {% block title %}{% endblock %}</title>
 </head>
-<body>
+<body class="bg-dark text-white">
     <header>
         <!--TODO: Add NavBar with: App Name, LogIn, LogOut, Register, etc-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border" role="navigation">
-            <a class="navbar-brand" href="#">CarbonFC</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning border" role="navigation">
+            <a class="navbar-brand text-success" href="#">CarbonFC</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
+                        {% if user.is_superuser %}
+                            <a class="nav-item nav-link mr-3" href="{% url 'persons' %}">
+                                <img src="https://img.icons8.com/bubbles/50/000000/group.png" />
+                            </a>
+                            <a class="nav-item nav-link mr-3" href="{% url 'users' %}">
+                                <img src="https://img.icons8.com/bubbles/50/000000/check-male.png" />
+                            </a>
+                        {% endif %}
                         <a class="nav-item nav-link mr-3" href="{% url 'home' %}">
-                            <img src="https://img.icons8.com/officel/40/000000/carbon.png" />
+                            <img src="https://img.icons8.com/bubbles/50/000000/benzene-ring.png" />
                         </a>
                         <a class="nav-item nav-link mr-3" href="{% url 'user' request.user.id %}">
                             <img src="https://img.icons8.com/bubbles/50/000000/find-user-male.png" />
                         </a>
                         <a class="nav-item nav-link mr-3" href="{% url 'logout' %}">
-                            <img src="https://img.icons8.com/bubbles/50/000000/delete-male-user.png" />
+                            <img src="https://img.icons8.com/bubbles/50/000000/logout-rounded.png" />
                         </a>
                     {% endif %}
                     <a class="nav-item nav-link mr-3" href="{% url 'password_reset' %}">
-                        <img src="https://img.icons8.com/cute-clipart/50/000000/recurring-appointment.png" />
+                        <img src="https://img.icons8.com/bubbles/50/000000/recurring-appointment.png" />
                     </a>
                     <a class="nav-item nav-link mr-3" href="{% url 'signup' %}">
                         <img src="https://img.icons8.com/bubbles/50/000000/add-user-male.png" />

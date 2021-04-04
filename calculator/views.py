@@ -56,7 +56,7 @@ def allPersons(request):
 
 def userDetails(request, user_id):
     user_details = User.objects.get(pk=user_id)
-    print(user_details)
+    # print(user_details)
     return render(request, "calculator/user.html", context={'user_details': user_details})
 
 

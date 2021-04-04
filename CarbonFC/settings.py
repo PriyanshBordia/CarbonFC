@@ -29,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG') or False
+DEBUG = env('DEBUG', default=False)
 
-ALLOWED_HOSTS = [env('ALLOWED_HOSTS'), '127.0.0.1', 'carbonfc.herokuapp.com']
+ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
 
 # ADMINS = [env('ADMINS')]
 # ADMINS=(admin@carfon.fc, )
@@ -132,23 +132,23 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     },
 
-    # 'development': {
-    #     'ENGINE': env('DEV_ENGINE'),
-    #     'NAME': env('DEV_DB_NAME'),
-    #     'USER': env('DEV_DB_USER'),
-    #     'PASSWORD': env('DEV_DB_PASSWORD'),
-    #     'HOST': env('DEV_DB_HOST'),
-    #     'PORT': env('DEV_DB_PORT'),
-    # },
+    'development': {
+        'ENGINE': env('DEV_ENGINE'),
+        'NAME': env('DEV_DB_NAME'),
+        'USER': env('DEV_DB_USER'),
+        'PASSWORD': env('DEV_DB_PASSWORD'),
+        'HOST': env('DEV_DB_HOST'),
+        'PORT': env('DEV_DB_PORT'),
+    },
 
-    # 'production': {
-    #     'ENGINE': env('DB_ENGINE'),
-    #     'NAME': env('DB_NAME'),
-    #     'USER': env('DB_USER'),
-    #     'PASSWORD': env('DB_PASSWORD'),
-    #     'HOST': env('DB_HOST'),
-    #     'PORT': env('DB_PORT'),
-    # },
+    'production': {
+        'ENGINE': env('DB_ENGINE'),
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
+    },
 }
 
 

@@ -1,17 +1,16 @@
 language: python
 
 python:
-	- "3.8"
+    - "3.8"
 
 install:
-	- pip install -r requirements.txt
+    - pip install -r requirements.txt
 
 script:
-	- python3 manage.py makemigrations
-	- python3 manage.py migrate
+    - python3 manage.py makemigrations
+    - python3 manage.py migrate
 
 notifications:
-	email:
-		on_success: never # default: change
-		on_failure: change # default: always
-		
+    email:
+        on_success: never # default: change
+        on_failure: change # default: always

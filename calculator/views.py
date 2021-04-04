@@ -2,8 +2,10 @@ import os
 import time
 import logging
 from django.http.response import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseBadRequest, HttpResponseForbidden, Http404
+
+from . import forms
 
 # from .models
 
@@ -35,20 +37,35 @@ def households(request):
     return render(request, "calculator/calculator.html")
 
 
-# def login(request):
-#     return render(request, "registration/login.html")
+# def addImage(request):
+    # pass
+    # return render(request, '')
 
 
 def user(request):
-    return render(request, "calculator/user.html")
+    if request.method == 'POST':
+        form = forms.PersonDetailsForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return render(request, "calculator/home.html")
+        else:
+            return HttpResponse('error')
+    else:
+        form = forms.PersonDetailsForm()
+        print('error2')
+    return render(request, "calculator/user.html", {'form': form})
+    
+
 
 def users(request):
     users = User.objects.all() 
+    return render(request, "calculator/users.html", context={'users': users})
 
-    return render(request, "calculator/users.html")
 
 def login(request):
     return render(request, "calculator/home.html")
+
 
 def logout(request):
     return HttpResponse('Good Bye.!')

@@ -1,1 +1,1 @@
-web: gunicorn carbonfc.wsgi:application --log-file -
+web: gunicorn CarbonFC.wsgi:application --log-file -

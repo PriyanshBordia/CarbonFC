@@ -13,4 +13,89 @@
 
 {% block body %}
     <h1>Users</h1>
+    <div id="user">
+        <br><br>
+        <div>
+            <span style="float: left;"><img src="https://img.icons8.com/bubbles/200/000000/user-male.png" /></span>
+            <span style="float: right;"><img src="https://img.icons8.com/bubbles/200/000000/user-female.png" /></span>
+        </div>
+    
+        <hr>
+    
+        <span>
+            <h2>User Details</h2>
+        </span>
+        <span>
+            <h3>UUIDCF{{ user_details.id }}</h3>
+        </span>
+    
+        <br>
+    
+        {% if user_details.id == request.user.id %}
+        <div class="conatainer container-fluid">
+            <div class="justify-content-center">
+                <form class="form-group" method="post" enctype="multipart/form-data">
+    
+                    {% csrf_token %}
+    
+                    {{ form.as_p }}
+    
+                    <img class="" src="{{ person.profile_image }}" alt="{{ person. first_name }}">
+    
+                    <div class="form-text h2">Passenger Details <img
+                            src="https://img.icons8.com/clouds/100/000000/passenger-with-baggage.png" /></div>
+                    <br>
+                    <div class="row justify-content-center">
+                        <input class="form-control col-md-5 mb-3" type="text" autocomplete="off" autofocus
+                            placeholder="First Name" name="first" required>
+                        <span class="mr-5"></span>
+                        <span class="ml-5"></span>
+                        <input class="form-control col-md-5 mb-3" type="text" autocomplete="off" autofocus
+                            placeholder="Last Name" name="last" required>
+                    </div>
+                    <br>
+                    <div class="row justify-content-center">
+                        <input class="form-control col-md-5 mb-3" type="number" autocomplete="off" autofocus
+                            placeholder="Age" name="age" min="1" required>
+                        <span class="mr-5"></span>
+                        <span class="ml-5"></span>
+                        <input class="form-control col-md-5 mb-3" type="email" autocomplete="off" autofocus
+                            placeholder="E-mail" name="email" required>
+                    </div>
+                    <br>
+    
+                    <input class="form-control" type="text" name="First Name">
+                    <input id="" class="form-control" type="text" name="Last Name">
+                    <input class="form-control btn btn-outline-info mt-3 mr-3 ml-5" type="reset" value="Reset">
+                    <input class="form-control btn btn-outline-info mt-3 mr-3 ml-5" type="submit" value="Save">
+                </form>
+                <form class="form-group" action="{% url 'update' %}" method="post">
+    
+                    {% csrf_token %}
+    
+                    <div class="form-group form-text h4">
+                        <input class="form-control col-md-4 ml-auto mr-auto" type="text" autocomplete="off" autofocus
+                            placeholder="First Name" name="first" value="{{ user_details.first_name }}">
+                    </div>
+                    <div class="form-group form-text h4">
+                        <input class="form-control col-md-4 ml-auto mr-auto" type="text" autocomplete="off" autofocus
+                            placeholder="Last Name" name="last" value="{{ user_details.last_name }}">
+                    </div>
+                    <div class="form-group form-text h4">
+                        <input class="form-control col-md-4 ml-auto mr-auto" type="email" autocomplete="off" autofocus
+                            placeholder="E-mail" aria-describedby="emailHelp" name="email" value="{{ user_details.email }}">
+                    </div>
+                    <button class="btn btn-outline-primary mt-4" type="submit" name="button">Update Details</button>
+                </form>
+            </div>
+        </div>
+        {% else %}
+        <h4><strong>First Name : </strong>{{ user_details.first_name }}</h4>
+        <h4><strong>Last Name : </strong>{{ user_details.last_name }}</h4>
+        <h4><span><strong>Age : </strong>{{ user_details.age }} &nbsp; &nbsp; &nbsp;
+                &nbsp;<strong>Gender:</strong>{{ user_details.sex }}</span></h4>
+        <h4><strong>E-mail : </strong>{{ passenger.email }}</h4>
+        <h4><strong>Ph-No : </strong> {{ user_details.ph_no }}</h4>
+        {% endif %}
+    </div>
 {% endblock %}

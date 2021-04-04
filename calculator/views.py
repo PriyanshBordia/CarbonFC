@@ -6,10 +6,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseBadRequest, HttpResponseForbidden, Http404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required, admin_required
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.contrib.auth.decorators import login_required, user_passes_test
+# from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse, reverse_lazy
-from .forms import PersonDetailsForm
+# from .forms import PersonDetailsForm
 from .models import Person
 
 
@@ -115,6 +115,7 @@ def updateUserDetails(request):
     return HttpResponseRedirect(reverse("user", args=(user_id, )))
 
 
+# @user_passes_test(lambda u: u.is_superuser)
 def allUsers(request):
     users = User.objects.all() 
     return render(request, "calculator/users.html", context={'users': users})
@@ -124,5 +125,6 @@ def login(request):
     return render(request, "calculator/home.html")
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def logout(request):
     return HttpResponse('Good Bye.!')

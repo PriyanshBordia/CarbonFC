@@ -21,7 +21,7 @@ class Person(models.Model):
     ph_no = models.BigIntegerField(blank=True, null=False, default=0000000)
     zipcode = models.BigIntegerField(null=False, blank=True)
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user', default=0)
 
     def is_valid_passenger(self):
         return (self.age > 0 and len(self.first) + len(self.last) > 0)
@@ -30,5 +30,5 @@ class Person(models.Model):
         # db_table = 'Passenger'
         # managed = False
 
-    def __str__(self) -> str:
-        return f'{self.first_name} {self.last_name}'
+    def __str__(self):
+        return f'{self.first_name} {self.last_name} {self.age}'

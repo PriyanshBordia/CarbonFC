@@ -8,4 +8,4 @@ class PersonDetailsForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'age', 'email', 'zipcode', 'profile_image']
 
 class PersonForm(forms.Form):
-    
+    pass

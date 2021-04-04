@@ -1,6 +1,268 @@
-// @import
+@import "variables";
+@import "globals";
 
-body {
-    max-width: 70%;
+body
+{
+    
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar-brand
+{
+   font-size: 30px !important;
+}
+
+.nav-item
+{
+    font-size: 20px !important;
+}
+
+a
+{
+    text-decoration: none !important;
+}
+
+h1
+{
+    color : #428bca;
+    margin-bottom: 10px;
+    font-weight: lighter;
+}
+
+h1:hover
+{
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    background-color: white;
+    color: #7dce94;
+}
+
+h2, .home-head, .h2
+{
+    color: #ff0000e1;
+    font-weight: 400;
+}
+
+h3
+{
+    color: cadetblue;
+}
+
+h4
+{
+    color: rgb(141, 130, 238);
+    font-weight: lighter;
+}
+
+h5
+{
+    color: #c2dde6;
+    font-weight: lighter;
+}
+
+// lists
+label
+{
+    color: seagreen;
+    font-size: 24px;
+}
+
+.helptext, li, li a
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    color: #0e4355;
+    background-color: rgb(255, 255, 255); 
+    text-align: center;
+    font-size: 22px;
+    font-weight: lighter;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.helptext:hover, li:hover, li a:hover
+{
+    background-color: whitesmoke;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#username
+{
+    color: seagreen;
+}
+
+
+.book-flight-container
+{
+    max-width: $form-width;
     margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-action-head, .register-action-head, .form-home-head, .reset-password-action-head
+{
+    margin: auto;
+    font-size: $font-md;
+}
+
+
+.book-flight-button
+{
+    width: $form-btn-size-lg;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none !important;
+}
+
+.register-action-button
+{
+    max-width: $form-btn-size-xl;
+    text-decoration: none !important;
+}
+
+.login-action-button, .book-action-button, .password-change-btn
+{
+    width: $form-btn-size-md;
+    text-decoration: none !important;
+}
+
+.form-home-button, .reset-password-action-button
+{
+    width: $form-btn-size-sm;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none !important;
+}
+
+.register-action-container, .login-action-container, .form-home-container, .reset-password-action-container
+{
+    max-width: $form-width;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.reset-password-action-text
+{
+    margin: auto;
+    font-size: 22px;
+    color: #bd8c7d;
+}
+
+.alert
+{
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Error Message */
+.error-message, .success-message {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+  font-size: 20;
+}
+
+.error-message-type, .success-message-type {
+  max-width: 700px;
+  margin: auto;
+  font-size: 24;
+}
+
+.error-message-a, .success-message-a {
+  color: white;
+  text-decoration: none !important;
+}
+
+@media only screen and (max-device-width: $lg)
+{
+    table, tr, th, td
+    {
+        max-width: 95%;
+    }
+}
+
+// table
+table, tr, th, td
+{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    border: 2px solid #bd8c7d;
+    overflow: scroll;
+    // "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+th
+{
+    color: rgb(165, 42, 63);
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+tbody tr:nth-child(even)
+{
+    background: #f0f0f0;
+}
+
+td
+{
+    color: #386283;
+    font-size: 1.5;
+    font-weight: 1.5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*Social Media handles*/
+#social-handles
+{
+    max-width: 700px;
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+#social-handles a
+{
+    color: gray;
+}
+
+#social-handles a:hover
+{
+    color: #447EA6;
+    text-decoration: none !important;
+}
+
+/*Footer*/
+footer
+{
+	margin: 20px;
+    padding: 10px;
+    color: grey;         /* Gray */
+    text-decoration: none !important;
+    text-align: center;
+    font-size: 20px;
+}
+
+/*Hower Over Effect*/
+.button
+{
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button:hover
+{
+    background-color: white;
+    color: rgb(120,81,169);
 }

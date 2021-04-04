@@ -21,80 +21,68 @@
 {% block body %}
     <div id="person" class="conatainer container-fluid">
         <div class="justify-content-center">
-            <!-- <br><br>
             <div>
                 <span></span><img src="{{ person_details.profile_image }}" /></span>
             </div>
-            
             <hr>
+            <span><h2>Person Details</h2></span>
+            <span><h3>UPIDCFC{{ person_details.id }}</h3></span>
             
-            <span>
-                <h2>Person Details</h2>
-            </span>
-            <span>
-                <h3>UUIDCF{{ user_details.id }}</h3>
-            </span>
+            <br>
             
-            <br> -->
-            
-            {% if user_details.id == request.user.id %}
-                    <form class="form-group" method="post" enctype="multipart/form-data">
-            
-                        {% csrf_token %}
-            
-                        {{ form.as_p }}
-            
-                        <img class="" src="{{ person.profile_image }}" alt="{{ person_details.first_name }}">
-            
-                        <div class="row">
-                            <input class="form-control col-md-5 mb-3" type="text" autocomplete="off" autofocus placeholder="First Name" name="first_name" required>
-                            <span class="mr-5"></span>
-                            <span class="ml-5"></span>
-                            <input class="form-control col-md-5 mb-3" type="text" autocomplete="off" autofocus placeholder="Last Name" name="last_name" required>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <input class="form-control col-md-5 mb-3" type="number" autocomplete="off" autofocus placeholder="Age" name="age" min="1" max="121" required>
-                            <span class="mr-5"></span>
-                            <span class="ml-5"></span>
-                            <input class="form-control col-md-5 mb-3" type="email" autocomplete="off" autofocus placeholder="E-mail"
-                                name="email" required>
-                        </div>
-                        <br>
-            
-                        <input class="form-control" type="text" name="First Name">
-                        <input id="" class="form-control" type="text" name="Last Name">
-                        <input class="form-control btn btn-outline-info mt-3 mr-3 ml-5" type="reset" value="Reset">
-                        <input class="form-control btn btn-outline-info mt-3 mr-3 ml-5" type="submit" value="Save">
-                    </form>
-                    <form class="form-group" action="{% url 'update' %}" method="post">
-            
-                        {% csrf_token %}
-            
-                        <div class="form-group form-text h4">
-                            <input class="form-control col-md-4 ml-auto mr-auto" type="text" autocomplete="off" autofocus
-                                placeholder="First Name" name="first" value="{{ user_details.first_name }}">
-                        </div>
-                        <div class="form-group form-text h4">
-                            <input class="form-control col-md-4 ml-auto mr-auto" type="text" autocomplete="off" autofocus
-                                placeholder="Last Name" name="last" value="{{ user_details.last_name }}">
-                        </div>
-                        <div class="form-group form-text h4">
-                            <input class="form-control col-md-4 ml-auto mr-auto" type="email" autocomplete="off" autofocus
-                                placeholder="E-mail" aria-describedby="emailHelp" name="email" value="{{ user_details.email }}">
-                        </div>
-                        <button class="btn btn-outline-primary mt-4" type="submit" name="button">Update Details</button>
-                    </form>
-                </div>
-            </div>
+            {% if person_details.id == request.user.id %}
+                <form class="form-group" method="post" enctype="multipart/form-data">
+        
+                    {% csrf_token %}
+        
+                    {{ form.as_p }}
+        
+                    <img class="" src="{{ person.profile_image }}" alt="{{ person_details.first_name }}">
+        
+                    <div class="row">
+                        <input class="form-control col-md-5 mb-3" type="text" autocomplete="off" autofocus placeholder="First Name" name="first_name" required>
+                        <span class="mr-5"></span>
+                        <span class="ml-5"></span>
+                        <input class="form-control col-md-5 mb-3" type="text" autocomplete="off" autofocus placeholder="Last Name" name="last_name" required>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <input class="form-control col-md-5 mb-3" type="number" autocomplete="off" autofocus placeholder="Age" name="age" min="1" max="121" required>
+                        <span class="mr-5"></span>
+                        <span class="ml-5"></span>
+                        <input class="form-control col-md-5 mb-3" type="email" autocomplete="off" autofocus placeholder="E-mail" name="email" required>
+                    </div>
+                    <br>
+                    <input class="form-control" type="text" name="First Name">
+                    <input id="" class="form-control" type="text" name="Last Name">
+                    <input class="form-control btn btn-outline-info mt-3 mr-3 ml-5" type="reset" value="Reset">
+                    <input class="form-control btn btn-outline-info mt-3 mr-3 ml-5" type="submit" value="Save">
+                </form>
+                <form class="form-group" action="{% url 'update' %}" method="post">
+        
+                    {% csrf_token %}
+        
+                    <div class="form-group form-text h4">
+                        <input class="form-control col-md-4 ml-auto mr-auto" type="text" autocomplete="off" autofocus
+                            placeholder="First Name" name="first" value="{{ user_details.first_name }}">
+                    </div>
+                    <div class="form-group form-text h4">
+                        <input class="form-control col-md-4 ml-auto mr-auto" type="text" autocomplete="off" autofocus
+                            placeholder="Last Name" name="last" value="{{ user_details.last_name }}">
+                    </div>
+                    <div class="form-group form-text h4">
+                        <input class="form-control col-md-4 ml-auto mr-auto" type="email" autocomplete="off" autofocus
+                            placeholder="E-mail" aria-describedby="emailHelp" name="email" value="{{ user_details.email }}">
+                    </div>
+                    <button class="btn btn-outline-primary mt-4" type="submit" name="button">Update Details</button>
+                </form>
             {% else %}
-            <h4><strong>First Name : </strong>{{ user_details.first_name }}</h4>
-            <h4><strong>Last Name : </strong>{{ user_details.last_name }}</h4>
-            <h4><span><strong>Age : </strong>{{ user_details.age }} &nbsp; &nbsp; &nbsp;
-                    &nbsp;<strong>Gender:</strong>{{ user_details.sex }}</span></h4>
-            <h4><strong>E-mail : </strong>{{ passenger.email }}</h4>
-            <h4><strong>Ph-No : </strong> {{ user_details.ph_no }}</h4>
-        {% endif %}
+                <h4><strong>First Name : </strong>{{ user_details.first_name }}</h4>
+                <h4><strong>Last Name : </strong>{{ user_details.last_name }}</h4>
+                <h4><span><strong>Age : </strong>{{ user_details.age }} &nbsp; &nbsp; &nbsp; &nbsp;<strong>Gender:</strong>{{ user_details.sex }}</span></h4>
+                <h4><strong>E-mail : </strong>{{ passenger.email }}</h4>
+                <h4><strong>Ph-No : </strong> {{ user_details.ph_no }}</h4>
+            {% endif %}
 
         </div>
     </div>

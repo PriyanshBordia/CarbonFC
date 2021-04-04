@@ -14,8 +14,8 @@ urlpatterns = [
     path('person/<int:p_id>/', views.personDetails, name='person'),
     path('person_update/', views.updatePersonDetails, name='pUpdate'),
     path('persons/', views.allPersons, name='persons'),
-    path('user_update/', views.updateUserDetails, name='uUpdate'),
     path('user/<int:user_id>/', views.userDetails, name='user'),
+    path('user_update/', views.updateUserDetails, name='uUpdate'),
     path('users/', views.allUsers, name='users'),
     # path('login', views.login, name='login'),
 ]

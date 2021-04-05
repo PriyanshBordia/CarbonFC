@@ -21,16 +21,14 @@
 {% block body %}
     <div id="person" class="conatainer container-fluid">
         <div class="justify-content-center">
-            <div>
-                <span></span><img src="{{ person_details.profile_image }}" /></span>
-            </div>
-            <hr>
-            <span><h2>Person Details</h2></span>
-            <span><h3>UPIDCFC{{ person_details.id }}</h3></span>
-            
-            <br>
-            
             {% if person_details.id == request.user.id %}
+                <div>
+                    <span><img src="{{ person_details.avatar_thumbnail.url }}" /></span>
+                </div>
+                <hr>
+                <!-- <span><h2>Person Details</h2></span> -->
+                <span><h3>UPIDCFC{{ person_details.id }}</h3></span>
+                <br>
                 <form class="form-group" method="post" enctype="multipart/form-data">
         
                     {% csrf_token %}

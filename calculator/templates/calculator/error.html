@@ -3,7 +3,7 @@
 {% extends "calculator/format.html" %}
 
 {% block title %}
-    Error
+    Error.!!
 {% endblock %}
 
 {% block head %}
@@ -12,5 +12,17 @@
 
 
 {% block body %}
-    <h1>Error</h1>
+    <div class="container container-fluid">
+        <div class="justify-content-center error-message mt-4 ml-auto mr-auto mb-2">
+            <div class="alert alert-danger error-message-type">
+                {{ type }}
+            </div>
+            <div class="alert alert-warning mt-2" role="alert">
+                {{ message }}
+            </div>
+            <div class="error-message-a mt-3 ml-auto mr-auto mb-2">
+                <a class="btn btn-outline-danger btn-lg mt-3" href="{% url 'travel' %}" role="button">Go. Back</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

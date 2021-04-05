@@ -1,0 +1,29 @@
+<!-- "templates/calculator/member.html" -->
+
+{% extends "calculator/format.html" %}
+
+{% block title %}
+    Add Person
+{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+    <div class="container container-fluid">
+        <div class="justify-content-center">
+            <h1>Travel</h1>
+
+            <form class="form-group" methods="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+                
+                <button class="btn btn-outline-warning btn-md mt-3" type="reset">Reset</button>
+                <button class="btn btn-outline-success btn-md mt-3" type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

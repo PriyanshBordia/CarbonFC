@@ -18,30 +18,32 @@
                 <span style="float: left;"><img src="https://img.icons8.com/bubbles/200/000000/business-man-in-blue-jacket.png" /></span>
                 <span style="float: right;"><img src="https://img.icons8.com/bubbles/200/000000/businesswoman.png" /></span>
             </div>
-    
-            <!-- <hr> -->
-            <!-- <h2>Users</h2> -->
+            <hr>
             <br>
-            <table class="center">
-                <thead>
-                    <tr>
-                        <th>UUIDCFC</th>
-                        <th>Username</th>
-                        <th>Details</th>
-                    <tr>
-                </thead>
-                <tbody>
-                    {% for user in users %}
+            {% if users %}
+                <table class="center">
+                    <thead>
                         <tr>
-                            <td>{{ user.id }}</td>
-                            <td>{{ user.username }}</td>
-                            <td><a class="btn btn-outline-warning btn-md mt-2 mb-2 ml-2 mr-2" href="{% url 'user' user.id %}" role="button">Show</a></td>
-                        </tr>
-                    {% empty %}
-                        <div class="alert alert-success" role="alert">No Users Registered.</div>
-                    {% endfor %}
-                </tbody>
-            </table>
+                            <th>UUIDCFC</th>
+                            <th>Username</th>
+                            <th>Details</th>
+                        <tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                            <tr>
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.username }}</td>
+                                <td><a class="btn btn-outline-warning btn-md mt-2 mb-2 ml-2 mr-2" href="{% url 'user' user.id %}" role="button">Show</a></td>
+                            </tr>
+                        {% empty %}
+                            <div class="alert alert-success" role="alert">No Users Registered.</div>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="alert alert-success" role="alert">No Users Registered.</div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

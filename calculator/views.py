@@ -21,45 +21,127 @@ def home(request):
     logger.info('At home.!!')
     return render(request, "calculator/home.html")
 
+def member(request):
+    user_id = request.user.id
+    try:
+        first_name = str(request.POST.get("first_name"))
+    except KeyError:
+        return render(request, "calculator/error.html", context={"message":  "Enter a First Name!!", "type": "Key Error!!"})
+    except ValueError:
+        return render(request, "calculator/error.html", context={"message": "Invalid Value to given field!!", "type": "Value Error!!"})
+    except TypeError:
+        return render(request, "calculator/error.html", context={"message": "Incompatible DataType!!", "type": "Type Error!!", })
+
+    try:
+        last_name = str(request.POST.get("last_name"))
+    except KeyError:
+        return render(request, "calculator/error.html", context={"message":  "Enter a Last Name!!", "type": "Key Error!!"})
+    except ValueError:
+        return render(request, "calculator/error.html", context={"message": "Invalid Value to given field!!", "type": "Value Error!!"})
+    except TypeError:
+        return render(request, "calculator/error.html", context={"message": "Incompatible DataType!!", "type": "Type Error!!", })
+
+    try:
+        age = int(request.POST.get("age"))
+    except KeyError:
+        return render(request, "calculator/error.html", context={"message": "Enter an Age!", "type": "Key Error!!"})
+    except ValueError:
+        return render(request, "calculator/error.html", context={"message": "Invalid Value to given field!!", "type": "Value Error!!"})
+    except TypeError:
+        return render(request, "calculator/error.html", context={"message": "Incompatible DataType!!", "type": "Type Error!!", })
+
+    try:
+        email = str(request.POST.get("email"))
+    except KeyError:
+        return render(request, "calculator/error.html", context={"message": "Enter an E-mail address!!", "type": "KeyError!!"})
+    except ValueError:
+        return render(request, "calculator/error.html", context={"message": "Invalid Value to given field!!", "type": "Value Error!!"})
+    except TypeError:
+        return render(request, "calculator/error.html", context={"message": "Incompatible DataType!!", "type": "Type Error!!", })
+    
+    try:
+        zipcode = str(request.POST.get("zipcode"))
+    except KeyError:
+        return render(request, "calculator/error.html", context={"message": "Enter a Zipcode!!", "type": "KeyError!!"})
+    except ValueError:
+        return render(request, "calculator/error.html", context={"message": "Invalid Value to given field!!", "type": "Value Error!!"})
+    except TypeError:
+        return render(request, "calculator/error.html", context={"message": "Incompatible DataType!!", "type": "Type Error!!", })
+
+    try:
+        sex = str(request.POST.get("sex"))
+    except KeyError:
+        return render(request, "calculator/error.html", context={"message": "Select appropriate gender from the options provided.!!", "type": "KeyError!!"})
+    except ValueError:
+        return render(request, "calculator/error.html", context={"message": "Invalid Value to given field!!", "type": "Value Error!!"})
+    except TypeError:
+        return render(request, "calculator/error.html", context={"message": "Incompatible DataType!!", "type": "Type Error!!", })
+ 
+    sex = sex[0]
+
+    ph_no = (9378214503 + (10 % request.user.id))
+
+    person = Person.objects.filter(first_name=first_name, last_name=last_name, age=age, sex=sex, email=email, zipcode=zipcode, ph_no=ph_no, user=user_id)
+
+    if not person:
+        person.save()
+    else:
+	    return render(request, "calculator/error.html", context={"message": "Already a Member!", "type": "Hello.!"})    
+    
+    return render(request, "calculator/calculator.html", context={})
+
+    
+
+
+
 @login_required
 def calculator(request):
     return render(request, "calculator/calculator.html")
 
+
 @login_required
 def food(request):
-    return render(request, "calculator/calculator.html")
+    return render(request, "calculator/food.html")
+
 
 @login_required
 def travel(request):
-    return render(request, "calculator/calculator.html")
+    return render(request, "calculator/travel.html")
+
 
 @login_required
 def households(request):
-    return render(request, "calculator/calculator.html")
+    return render(request, "calculator/households.html")
 
 
+@login_required
 def personDetails(request, p_id):
     person_details = Person.objects.filter(pk=p_id)
     return render(request, "calculator/person.html", context={'person_details': person_details})
 
 
+@login_required
 def updatePersonDetails(request, p_id):
     # person_details = Person.objects.filter(pk=p_id)
     return HttpResponseRedirect(reverse("person", args=(p_id, )))
 
 
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def allPersons(request):
     user_id = request.user.id
     persons = Person.objects.filter(user=user_id)
     return render(request, "calculator/persons.html")
 
 
+@login_required
 def userDetails(request, user_id):
     user_details = User.objects.get(pk=user_id)
     # print(user_details)
     return render(request, "calculator/user.html", context={'user_details': user_details})
 
 
+@login_required
 def updateUserDetails(request):
     user_id = request.user.id
     try:
@@ -115,7 +197,8 @@ def updateUserDetails(request):
     return HttpResponseRedirect(reverse("user", args=(user_id, )))
 
 
-# @user_passes_test(lambda u: u.is_superuser)
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def allUsers(request):
     users = User.objects.all() 
     return render(request, "calculator/users.html", context={'users': users})

@@ -90,9 +90,6 @@ def member(request):
     
     return render(request, "calculator/calculator.html", context={})
 
-    
-
-
 
 @login_required
 def calculator(request):

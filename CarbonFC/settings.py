@@ -33,6 +33,7 @@ DEBUG = True  #env('DEBUG', default=True)
 
 ALLOWED_HOSTS = [env('ALLOWED_HOSTS'), '127.0.0.1']
 
+# ADMINS
 # ADMINS = [env('ADMINS')]
 ADMINS = [('Priyansh Bordia', 'priyanshbordia2@gmail.com')]
 # ADMINS = ('Priyansh Bordia', 'priyanshbordia2@gmail.com')

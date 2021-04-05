@@ -1,12 +1,10 @@
 html {
   font-size: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *, *::before, *::after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
@@ -18,27 +16,22 @@ body {
 }
 
 .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .flex-jc-sb {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
-
 .flex-jc-c {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
+}
+.flex-ai-c {
+  align-items: center;
 }
 
-.flex-ai-c {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.container {
+  max-width: 800px;
+  margin: auto;
+  align-items: center;
 }
 
 .center {
@@ -48,6 +41,7 @@ body {
 
 .navbar-brand {
   font-size: 30px !important;
+  color: #7dce94;
 }
 
 .nav-item {
@@ -91,6 +85,10 @@ h5 {
   font-weight: lighter;
 }
 
+hr {
+  color: #f7f7f7;
+}
+
 label {
   color: seagreen;
   font-size: 24px;
@@ -106,7 +104,7 @@ label {
   text-align: center;
   font-size: 22px;
   font-weight: lighter;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .helptext:hover, li:hover, li a:hover {
@@ -120,7 +118,7 @@ label {
   color: seagreen;
 }
 
-.book-flight-container {
+.calculator-container {
   max-width: 700px;
   margin: auto;
   padding: 20px;
@@ -132,14 +130,14 @@ label {
   font-size: 20;
 }
 
-.book-flight-button {
+.search-btn {
   width: 3.5in;
   margin-left: auto;
   margin-right: auto;
   text-decoration: none !important;
 }
 
-.register-action-button {
+.register-action-btn, .search-btn {
   max-width: 5in;
   text-decoration: none !important;
 }
@@ -199,7 +197,6 @@ label {
     max-width: 95%;
   }
 }
-
 table, tr, th, td {
   margin-left: auto;
   margin-right: auto;
@@ -212,7 +209,7 @@ table, tr, th, td {
 th {
   color: #a52a3f;
   font-size: 20px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 tbody tr:nth-child(even) {
@@ -232,7 +229,6 @@ td {
   margin: auto;
   padding: 5px;
   text-align: center;
-  background-color: whitesmoke;
 }
 
 #social-handles a {
@@ -266,4 +262,5 @@ footer {
   background-color: white;
   color: #7851a9;
 }
+
 /*# sourceMappingURL=style.css.map */

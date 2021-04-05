@@ -1,6 +1,8 @@
 import os
 import time
 import logging
+from django.core import paginator
+from django.core.paginator import Paginator
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.http import HttpResponseBadRequest, HttpResponseForbidden, Http404
@@ -18,10 +20,25 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 
 def home(request):
-    logger.info('At home.!!')
-    return render(request, "calculator/home.html")
+    # logger.info('At home.!!')
+    persons = Person.objects.all()
+    paginator = Paginator(persons, 6)
+    
+    persons = paginator.get_page(1)
+
+    return render(request, "calculator/home.html", context={'persons': persons})
+
+
+def find(request):
+    return render(request, "calculator/search.html")
+
+@login_required
+def search(request):
+    return render(request, "calculator/search.html")
+
 
 def member(request):
+
     user_id = request.user.id
     try:
         first_name = str(request.POST.get("first_name"))

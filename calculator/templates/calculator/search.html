@@ -1,0 +1,38 @@
+<!-- "templates/calculator/search.html" -->
+
+{% extends "calculator/format.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+    <div class="container container-fluid text-center mt-2 ml-auto mr-auto">
+        <div class="search-container justify-content-center">
+            <div class="mt-4">
+                <img src="https://img.icons8.com/bubbles/200/000000/google-web-search.png" />
+            </div>
+            <br>
+            <div class="search-form-container ml-auto mr-auto">
+                <form method="POST" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                    <div class="form-row mt-4">
+                        <div class="form-group col-md-8">
+                            <input type="text" class="form-control" name="search" autocomplete="off" autofocus placeholder="Type username to be searched.." required>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="search-btn btn btn-outline-primary">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

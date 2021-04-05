@@ -20,7 +20,8 @@
                     Hi! <span id="username">{{ user.username }}</span>, <br>
                     Welcome Back :)
                 </div>
-                <a class="form-home-button btn btn-outline-info btn-lg mt-3" href="{% url 'member' %}" role="button">Calculate</a>
+                <a class="form-home-button btn btn-outline-info btn-lg mt-3 mr-3" href="{% url 'search' %}" role="button">Find People</a>
+                <a class="form-home-button btn btn-outline-warning btn-lg mt-3 ml-3" href="{% url 'calculator' %}" role="button">Calculator</a>
             </div>
         </div>
     {% else %}
@@ -28,8 +29,8 @@
             <div class="form-home-container justify-content-center">
                 <span><img src="https://img.icons8.com/clouds/200/000000/meeting.png" /></span>
                 <div class="home-head h2 mt-2 mr-auto ml-0">
-                    <span id="username">Welcome</span>, <br>
-                    Log In to be more conscious.
+                    <span id="username">Welcome</span>,<br>
+                        Log In to be more conscious.
                 </div>
                 <a class="form-home-button btn btn-outline-info mt-3" href="{% url 'login' %}" role="button">LogIn</a>
             </div>

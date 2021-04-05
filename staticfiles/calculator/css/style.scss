@@ -1,7 +1,15 @@
 @import "variables";
 @import "globals";
 
-.center {
+.container
+{
+    max-width: 800px;
+    margin: auto;
+    align-items: center;
+}
+
+.center 
+{
   margin-left: auto;
   margin-right: auto;
 }
@@ -15,6 +23,54 @@
 .nav-item
 {
     font-size: 20px !important;
+}
+
+a
+{
+    text-decoration: none !important;
+}
+
+h1
+{
+    color : #428bca;
+    margin-bottom: 10px;
+    font-weight: lighter;
+}
+
+h1:hover
+{
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    background-color: white;
+    color: #7dce94;
+}
+
+h2, .home-head, .h2
+{
+    color: #ff0000e1;
+    font-weight: 400;
+}
+
+h3
+{
+    color: cadetblue;
+}
+
+h4
+{
+    color: rgb(141, 130, 238);
+    font-weight: lighter;
+}
+
+h5
+{
+    color: #c2dde6;
+    font-weight: lighter;
+}
+
+hr 
+{
+    color: rgb(247, 247, 247);
 }
 
 // lists
@@ -51,9 +107,9 @@ label
 }
 
 
-.book-flight-container
+.calculator-container
 {
-    max-width: $form-width;
+    max-width: $form-width-md;
     margin: auto;
     padding: 20px;
     text-align: center;
@@ -66,7 +122,7 @@ label
 }
 
 
-.book-flight-button
+.search-btn
 {
     width: $form-btn-size-lg;
     margin-left: auto;
@@ -74,7 +130,7 @@ label
     text-decoration: none !important;
 }
 
-.register-action-button
+.register-action-btn, .search-btn
 {
     max-width: $form-btn-size-xl;
     text-decoration: none !important;
@@ -96,7 +152,7 @@ label
 
 .register-action-container, .login-action-container, .form-home-container, .reset-password-action-container
 {
-    max-width: $form-width;
+    max-width: $form-width-md;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -116,7 +172,8 @@ label
 }
 
 /* Error Message */
-.error-message, .success-message {
+.error-message, .success-message 
+{
   max-width: 700px;
   margin: auto;
   text-align: center;
@@ -124,13 +181,15 @@ label
   font-size: 20;
 }
 
-.error-message-type, .success-message-type {
+.error-message-type, .success-message-type 
+{
   max-width: 700px;
   margin: auto;
   font-size: 24;
 }
 
-.error-message-a, .success-message-a {
+.error-message-a, .success-message-a 
+{
   color: white;
   text-decoration: none !important;
 }
@@ -182,7 +241,7 @@ td
     margin: auto;
     padding: 5px;
     text-align: center;
-    background-color: whitesmoke;
+    // background-color: whitesmoke;
 }
 
 #social-handles a

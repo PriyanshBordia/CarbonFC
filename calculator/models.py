@@ -7,6 +7,19 @@ from imagekit.processors import ResizeToFill
 
 # Create your models here.
 
+class Address(models.Model):
+    address = models.CharField(max_length=255, null=False, blank=False)
+    address2 = models.CharField(max_length=255, null=False, blank=True)
+
+    city = models.CharField(max_length=64, null=False, blank=False)
+    state = models.CharField(max_length=64, null=False, blank=False)
+
+    zipcode = models.BigIntegerField(null=False, blank=True)
+
+    def __str__(self) -> str:
+        return f'{self.address},\n{self.address2}\n{self.city}, {self.state}'
+
+
 class Person(models.Model):
 
     options = (('M', 'Male'), ('F', 'Female'), ('X', 'Not Preferred to say'),)
@@ -22,7 +35,6 @@ class Person(models.Model):
     avatar_thumbnail = ImageSpecField(source='avatar', processors=[ResizeToFill(100, 50)], format='PNG', options={'quality': 60})
 
     ph_no = models.BigIntegerField(blank=True, null=False, default=0000000, unique=True)
-    zipcode = models.BigIntegerField(null=False, blank=True)
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user', default=0)
 

@@ -1,0 +1,35 @@
+<!-- "templates/calculator/wishlist.html" -->
+
+{% extends "calculator/format.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+    <div class="container container-fluid">
+        <div class="justify-content-center">
+            {% for person in persons %}
+                <div class="row">
+                    <div class="card bg-dark" style="width: 18rem;">
+                        <img src="{{ person.avatar.url }}" class="card-img-top" alt="{{ person }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ person }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                                content.</p>
+                            <a href="{% url 'person' person.id %}" class="btn btn-primary">Look Up</a>
+                        </div>
+                        <div class="card-footer">
+                            Last Online
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -11,8 +11,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required, user_passes_test
 # from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse, reverse_lazy
+
+
 # from .forms import PersonDetailsForm
-from .models import Person
+from .models import Address, Person
 
 
 logger = logging.getLogger(__name__)
@@ -22,19 +24,45 @@ logger = logging.getLogger(__name__)
 def home(request):
     # logger.info('At home.!!')
     persons = Person.objects.all()
-    paginator = Paginator(persons, 6)
-    persons = paginator.get_page(1)
+    # paginator = Paginator(persons, 6)
+    # persons = paginator.get_page(1)
 
     return render(request, "calculator/home.html", context={'persons': persons})
 
 
 def find(request):
-    return render(request, "calculator/search.html")
+
+    try:
+        search = str(request.POST.get('search'))
+    except KeyError:
+        return render(request, "calculator/error.html", context={"message":  "Enter a First Name!!", "type": "Key Error!!"})
+    except ValueError:
+        return render(request, "calculator/error.html", context={"message": "Invalid Value to given field!!", "type": "Value Error!!"})
+    except TypeError:
+        return render(request, "calculator/error.html", context={"message": "Incompatible DataType!!", "type": "Type Error!!", })
+
+    persons = Person.objects.filter(username__icontains=search)
+
+    return render(request, "calculator/find.html", context={'persons': persons})
 
 
 @login_required
 def search(request):
     return render(request, "calculator/search.html")
+
+
+@login_required
+def wishlist(request):
+    user_id = request.user.id
+    try:
+        persons = Person.objects.filter(user=user_id)
+    except ValueError:
+        return render(request, "calculator/error.html", context={"message": "Invalid Value to given field!!", "type": "Value Error!!"})
+    except TypeError:
+        return render(request, "calculator/error.html", context={"message": "Incompatible DataType!!", "type": "Type Error!!", })
+
+
+    return render(request, "calculator/wishlist.html", context={'persons': persons})
 
 
 def member(request):

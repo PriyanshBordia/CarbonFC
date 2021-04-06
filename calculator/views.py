@@ -29,7 +29,7 @@ def home(request):
 
     return render(request, "calculator/home.html", context={'persons': persons})
 
-
+@login_required
 def find(request):
 
     try:

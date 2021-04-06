@@ -23,7 +23,6 @@ def home(request):
     # logger.info('At home.!!')
     persons = Person.objects.all()
     paginator = Paginator(persons, 6)
-    
     persons = paginator.get_page(1)
 
     return render(request, "calculator/home.html", context={'persons': persons})
@@ -31,6 +30,7 @@ def home(request):
 
 def find(request):
     return render(request, "calculator/search.html")
+
 
 @login_required
 def search(request):

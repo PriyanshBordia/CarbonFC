@@ -53,6 +53,7 @@ def search(request):
 
 @login_required
 def wishlist(request):
+    
     user_id = request.user.id
     try:
         persons = Person.objects.filter(user=user_id)

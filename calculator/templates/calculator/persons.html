@@ -12,16 +12,16 @@
 
 
 {% block body %}
-    <div class="container container-fluid">
-        <div class="justify-content-center">
-            <h1>Persons</h1>
-            <div>
-                <span style="float: left;"><img src="https://img.icons8.com/bubbles/200/000000/business-man-in-blue-jacket.png" /></span>
-                <span style="float: right;"><img src="https://img.icons8.com/bubbles/200/000000/businesswoman.png" /></span>
-            </div>
-            <hr>
-            <br>
+    <div class="container container-fluid mt-6">
+        <div class="justify-content-center mt-4">
             {% if persons %}
+                <h1>Persons</h1>
+                <div>
+                    <span style="float: left;"><img src="https://img.icons8.com/bubbles/200/000000/business-man-in-blue-jacket.png" /></span>
+                    <span style="float: right;"><img src="https://img.icons8.com/bubbles/200/000000/businesswoman.png" /></span>
+                </div>
+                <hr>
+                <br>
                 <table class="center">
                     <thead>
                         <tr>
@@ -44,7 +44,7 @@
                     </tbody>
                 </table>
             {% else %}
-                <div class="alert alert-success" role="alert">No Persons Registered.</div>
+                <div class="empty-data-list alert alert-success mt-4" role="alert">No Persons Registered.</div>
             {% endif %}
         </div>
     </div>

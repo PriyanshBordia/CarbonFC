@@ -7,32 +7,32 @@
 {% endblock %}
 
 {% block head %}
-
+    {% load static %}
 {% endblock %}
 
 
 {% block body %}
     <div class="container container-fluid">
         <div class="justify-content-center">
-            <div class="card bg-dark text-white text-center">
-                <img class="card-img" src="..." alt="Card image">
+            <div class="card bg-dark text-white text-center mt-5">
+                <img class="card-img" src="{% static 'calculator/media/images/pexels-ella-olsson-1640773.jpg' %}" alt="Food">
                 <div class="card-img-overlay">
-                    <h5 class="card-title">Food</h5>
-                    <p class="card-text">
+                    <!-- <h5 class="card-title">Food</h5> -->
+                    <!-- <p class="card-text">
                         <blockquote class="blockquote mb-0">
                             <p>A well-known quote, contained in a blockquote element.</p>
                             <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
                         </blockquote>
-                    </p>
+                    </p> -->
                     <!-- <p class="card-text">Last updated 3 mins ago</p> -->
                 </div>
             </div>
 
-            <form method="POST" enctype="multipart/form-data">
+            <!-- <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 <input type="text" autocomplete="off" autofocus placeholder="Calorie">
-            </form>
+            </form> -->
         </div>
     </div>
 {% endblock %}

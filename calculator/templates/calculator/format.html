@@ -24,6 +24,12 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+
+        <!-- Social Share -->
+            <script type="text/javascript"
+                src="https://platform-api.sharethis.com/js/sharethis.js#property=606eb026f6067000116b0b22&product=sticky-share-buttons"
+                async="async">
+            </script>
         
         {% load static %}
         
@@ -41,7 +47,7 @@
         <header>
             <!--TODO: Add NavBar with: App Name, LogIn, LogOut, Register, etc-->
             <nav class="navbar navbar-expand-lg navbar-light bg-warning border" role="navigation">
-                <a class="navbar-brand text-success" href="#">CarbonFC</a>
+                <a class="navbar-brand text-success" href="{% url 'home' %}">CarbonFC</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -87,6 +93,8 @@
             {% block body %} {% endblock %}
         </main>
     
+        <div class="sharethis-sticky-share-buttons"></div>
+        
         <hr class="mt-5">
     
         <section class="comments">

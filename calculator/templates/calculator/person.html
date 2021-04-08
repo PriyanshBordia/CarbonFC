@@ -19,8 +19,8 @@
 
 
 {% block body %}
-    <div id="person" class="conatainer container-fluid">
-        <div class="justify-content-center">
+    <div id="person" class="container container-fluid text-center mt-4">
+        <div class="justify-content-center mt-2 ml-auto mr-auto mb-2">
             {% if person_details.id == request.user.id %}
                 <div>
                     <span><img src="{{ person_details.avatar_thumbnail.url }}" /></span>

@@ -55,14 +55,15 @@ def search(request):
 def wishlist(request):
     
     user_id = request.user.id
+
     try:
         persons = Person.objects.filter(user=user_id)
     except ValueError:
-        return render(request, "calculator/error.html", context={"message": "Invalid Value to given field!!", "type": "Value Error!!"})
+        return render(request, "calculator/error.html", context={"message": "Invalid Value to given field!!", "type": "Value Error!!", "redirection": "home"})
     except TypeError:
-        return render(request, "calculator/error.html", context={"message": "Incompatible DataType!!", "type": "Type Error!!", })
+        return render(request, "calculator/error.html", context={"message": "Incompatible DataType!!", "type": "Type Error!!", "redirection": "home"})
 
-
+    persons = []
     return render(request, "calculator/wishlist.html", context={'persons': persons})
 
 

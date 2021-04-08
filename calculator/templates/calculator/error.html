@@ -12,8 +12,8 @@
 
 
 {% block body %}
-    <div class="container container-fluid">
-        <div class="justify-content-center error-message mt-4 ml-auto mr-auto mb-2">
+    <div class="container container-fluid text-center mt-4">
+        <div class="justify-content-center error-message mt-2 ml-auto mr-auto mb-2">
             <div class="alert alert-danger error-message-type">
                 {{ type }}
             </div>
@@ -21,7 +21,7 @@
                 {{ message }}
             </div>
             <div class="error-message-a mt-3 ml-auto mr-auto mb-2">
-                <a class="btn btn-outline-danger btn-lg mt-3" href="{% url 'travel' %}" role="button">Go. Back</a>
+                <a class="btn btn-outline-danger btn-lg mt-3" href="{% url '{{ redirection }}' %}" role="button">Go. Back</a>
             </div>
         </div>
     </div>

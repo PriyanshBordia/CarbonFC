@@ -31,12 +31,14 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #env('DEBUG', default=True)
 
+WHITENOISE_AUTOREFRESH = True
+
 ALLOWED_HOSTS = [env('ALLOWED_HOSTS'), '127.0.0.1']
 
 # ADMINS
 # ADMINS = [env('ADMINS')]
 ADMINS = [('Priyansh Bordia', 'priyanshbordia2@gmail.com')]
-# ADMINS = ('Priyansh Bordia', 'priyanshbordia2@gmail.com')
+
 
 # Application definition
 
@@ -48,6 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'django.contrib.humanize',
     'accounts',
 ]
 
@@ -59,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'CarbonFC.urls'
@@ -80,50 +85,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'CarbonFC.wsgi.application'
-
-# Log File
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'formatters': {
-#         'verbose': {
-#             'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-#             'style': '{',
-#         },
-#         'simple': {
-#             'format': '{levelname} {message}',
-#             'style': '{',
-#         },
-#     },
-#     'filters': {
-#         # 'special': {
-#         #     '()': 'CarbonFC.logging.SpecialFilter',
-#         #     'foo': 'bar',
-#         # },
-#         'require_debug_true': {
-#             '()': 'django.utils.log.RequireDebugTrue',
-#         },
-#     },
-#     'handlers': {
-#         'console': {
-#             'level': 'INFO',
-#             'filters': ['require_debug_true'],
-#             'class': 'logging.StreamHandler',
-#             'formatter': 'simple'
-#         },
-#         # 'mail_admins': {
-#         #     'level': 'ERROR',
-#         #     'class': 'django.utils.log.AdminEmailHandler',
-#         #     # 'filters': ['special']
-#         # }
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers': ['console'],
-#             'propagate': True,
-#         },
-#     }
-# }
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -153,6 +114,44 @@ DATABASES = {
     },
 }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': ('%(asctime)s [%(process)d] [%(levelname)s] '
+                       'pathname=%(pathname)s lineno=%(lineno)s '
+                       'funcname=%(funcName)s %(message)s'),
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        }
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

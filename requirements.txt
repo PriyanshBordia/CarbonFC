@@ -4,8 +4,12 @@ certifi==2020.12.5
 chardet==4.0.0
 Django==3.1.8
 django-appconf==1.0.4
+django-bootstrap3==15.0.0
+django-cleanup==5.1.0
 django-environ==0.4.5
+django-extensions==3.1.2
 django-imagekit==4.0.2
+graphviz==0.16
 gunicorn==20.1.0
 idna==2.10
 pathspec==0.8.1
@@ -19,6 +23,7 @@ requests==2.25.1
 six==1.15.0
 sqlparse==0.4.1
 toml==0.10.2
-urllib3==1.26.4
+urllib3==1.26.3
+Werkzeug==1.0.1
 whitenoise==5.2.0
 yamllint==1.26.0

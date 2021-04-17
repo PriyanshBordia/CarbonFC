@@ -35,13 +35,13 @@
         
         <link href="{% static 'calculator/css/style.css' %}" rel="stylesheet">
         
-        <!-- <script src="{% static 'calculator/js/calculator.js' %}"></script> -->
+        <script src="{% static 'calculator/js/script.js' %}"></script>
 
         {% block head %}{% endblock %}
 
         <!-- Icon -->
         <link rel = "icon" href="https://img.icons8.com/fluent/64/000000/benzene-ring.png" />
-        <title> | CarbonFC {% block title %}{% endblock %}</title>
+        <title> {% block title %}{% endblock %} | CarbonFC </title>
     </head>
     <body class="bg-dark text-white">
         <header>
@@ -93,7 +93,7 @@
             {% block body %} {% endblock %}
         </main>
     
-        <div class="sharethis-sticky-share-buttons"></div>
+        <!-- <div class="sharethis-sticky-share-buttons"></div> -->
         
         <hr class="mt-5">
     
@@ -101,7 +101,7 @@
             <script src="https://utteranc.es/client.js" repo="PriyanshBordia/CarbonFC" issue-term="title" label="utterances" theme="github-dark" crossorigin="anonymous" async></script>
         </section>
     
-        <hr style="max-width:700px;">
+        <!-- <hr style="max-width:700px;"> -->
         
         <!-- <div id="social-handles" class="justify-content-center">
             <a href="https://priyanshbordia.github.io/" class="ml-3" target="_blank" title="Priyansh Bordia"><i
@@ -123,7 +123,7 @@
         <hr style="max-width:700px;"> -->
         
         <footer class="button">
-            &copy; 2021 CarbonFC, Inc.
+            Created by Priyansh Bordia &copy; 2021 CarbonFC, Inc.
         </footer>
     </body>
 </html>

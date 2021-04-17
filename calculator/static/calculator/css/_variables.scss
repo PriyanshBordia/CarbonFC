@@ -2,17 +2,24 @@ $form-width-sm: 600px;
 $form-width-md: 700px;
 $form-width-lg: 800px;
 
-$form-btn-size-sm: 2.5in;
-$form-btn-size-md: 3in;
-$form-btn-size-lg: 3.5in;
-$form-btn-size-xl: 5in;
+$width-xs: 0px;
+$width-sm: 576px;
+$width-md: 768px;
+$width-lg: 992px;
+$width-xl: 1200px;
 
-$font-lg: 24;
-$font-md: 20;
-$font-sm: 18;
-$sm: 576px;
-$lg: 768px;
-$xl: 1200px;
+$btn-size-sm: 2.0in;
+$btn-size-sm: 2.5in;
+$btn-size-md: 3.0in;
+$btn-size-lg: 3.5in;
+$btn-size-xl: 5.0in;
+
+$font-xl: 2.0rem;
+$font-lg: 1.50rem;
+$font-md: 1.250rem;
+$font-sm: 1.125rem;
+$font-xs: 0.875rem;
+
 
 $Barely-Green: #acb7ae;
 $LightSaber-Blue: #c2dde6;
@@ -31,24 +38,3 @@ $u1: #F6AF44;
 $u2: #5b9084;
 
 $std-font: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-
-// $theme-colors: (
-//   "primary": #0074d9,
-//   "danger": #ff4136,
-// );
-
-// $colors: (
-//   "blue": $blue,
-//   "indigo": $indigo,
-//   "purple": $purple,
-//   "pink": $pink,
-//   "red": $red,
-//   "orange": $orange,
-//   "yellow": $yellow,
-//   "green": $green,
-//   "teal": $teal,
-//   "cyan": $cyan,
-//   "white": $white,
-//   "gray": $gray-600,
-//   "gray-dark": $gray-800
-// ) !default;

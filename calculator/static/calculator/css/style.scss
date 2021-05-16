@@ -1,144 +1,17 @@
 @import "variables";
 @import "colors";
 
-@import "helptext";
-@import "header";
+@import "animations";
+@import "mixins";
+
 @import "globals";
 
+@import "header";
 
+@import "error";    /* Error Message */
 
-// lists
+@import "helptext";
 
+@import "footer";
 
-#username
-{
-    color: seagreen;
-}
-
-
-.calculator-container
-{
-    max-width: $form-width-md;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
-}
-
-.login-action-head, .register-action-head, .form-home-head, .reset-password-action-head
-{
-    margin: auto;
-    font-size: $font-md;
-}
-
-
-.search-btn
-{
-    width: $form-btn-size-lg;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none !important;
-}
-
-.register-action-btn, .search-btn
-{
-    max-width: $form-btn-size-xl;
-    text-decoration: none !important;
-}
-
-.login-action-button, .book-action-button, .password-change-btn
-{
-    width: $form-btn-size-md;
-    text-decoration: none !important;
-}
-
-.form-home-button, .reset-password-action-button
-{
-    width: $form-btn-size-sm;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none !important;
-}
-
-.register-action-container, .login-action-container, .form-home-container, .reset-password-action-container
-{
-    max-width: $form-width-md;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-.reset-password-action-text
-{
-    margin: auto;
-    font-size: 22px;
-    color: #bd8c7d;
-}
-
-.alert
-{
-    text-align: center;
-    font-size: 24px;
-}
-
-/* Error Message */
-.error-message, .success-message 
-{
-  max-width: 700px;
-  margin: auto;
-  text-align: center;
-  padding: 30px;
-  font-size: 20;
-}
-
-.error-message-type, .success-message-type 
-{
-  max-width: 700px;
-  margin: auto;
-  font-size: 24;
-}
-
-.error-message-a, .success-message-a 
-{
-  color: white;
-  text-decoration: none !important;
-}
-
-@media only screen and (max-device-width: $lg)
-{
-    table, tr, th, td
-    {
-        max-width: 95%;
-    }
-}
-
-// table
-table, tr, th, td
-{
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 10px 10px 10px;
-    text-align: center;
-    border: 2px solid #bd8c7d;
-    overflow: scroll;
-    // "Helvetica Neue", Helvetica, Arial, sans-serif
-}
-
-th
-{
-    color: rgb(165, 42, 63);
-    font-size: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-tbody tr:nth-child(even)
-{
-    background: #386283;
-}
-
-td
-{
-    color: #386283;
-    font-size: 1.5;
-    font-weight: 1.5;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+@import "store";

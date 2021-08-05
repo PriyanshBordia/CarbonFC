@@ -10,11 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-import environ
-env = environ.Env()
-environ.Env.read_env()
-
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
 from pathlib import Path
 
 
@@ -26,14 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True #env('DEBUG', default=False)
+DEBUG = True #os.getenv('DEBUG', default=False)
 
-WHITENOISE_AUTOREFRESH = True
-
-ALLOWED_HOSTS = [env('ALLOWED_HOSTS'), '127.0.0.1']
+ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS'), '127.0.0.1']
 
 # ADMINS
 # ADMINS = [env('ADMINS')]
@@ -66,6 +65,8 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+WHITENOISE_AUTOREFRESH = True
+
 ROOT_URLCONF = 'CarbonFC.urls'
 
 TEMPLATES = [
@@ -86,6 +87,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'CarbonFC.wsgi.application'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -96,61 +99,22 @@ DATABASES = {
     },
 
     'development': {
-        'ENGINE': env('DEV_DB_ENGINE'),
-        'NAME': env('DEV_DB_NAME'),
-        'USER': env('DEV_DB_USER'),
-        'PASSWORD': env('DEV_DB_PASSWORD'),
-        'HOST': env('DEV_DB_HOST'),
-        'PORT': env('DEV_DB_PORT'),
+        'ENGINE': os.getenv('DEV_DB_ENGINE'),
+        'NAME': os.getenv('DEV_DB_NAME'),
+        'USER': os.getenv('DEV_DB_USER'),
+        'PASSWORD': os.getenv('DEV_DB_PASSWORD'),
+        'HOST': os.getenv('DEV_DB_HOST'),
+        'PORT': os.getenv('DEV_DB_PORT'),
     },
 
     'production': {
-        'ENGINE': env('DB_ENGINE'),
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT'),
+        'ENGINE': os.getenv('DB_ENGINE'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     },
-}
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': ('%(asctime)s [%(process)d] [%(levelname)s] '
-                       'pathname=%(pathname)s lineno=%(lineno)s '
-                       'funcname=%(funcName)s %(message)s'),
-            'datefmt': '%Y-%m-%d %H:%M:%S'
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        }
-    },
-    'handlers': {
-        'null': {
-            'level': 'DEBUG',
-            'class': 'logging.NullHandler',
-        },
-        'console': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
-        }
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-    }
 }
 
 # Password validation
@@ -192,13 +156,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '/static'),
-    os.path.join(BASE_DIR, 'calculator/static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, '/static'),
+#     os.path.join(BASE_DIR, 'calculator/static'),
+# )
 
 # Media Files
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'calculator/static/media')
 MEDIA_URL = '/media/'
 
 #login redirection to homepage
@@ -210,8 +174,8 @@ LOGOUT_REDIRECT_URL = 'home'
 #Send reset pass e-mails
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = env('EMAIL_PORT')
-EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
 DEFAULT_FROM_EMAIL = 'The CarbonFC Team <no-reply@carbon.fc>'

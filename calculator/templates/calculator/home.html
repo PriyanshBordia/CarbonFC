@@ -1,6 +1,6 @@
-<!-- "calculator/home.html" -->
+<!-- "templates/calculator/home.html" -->
 
-{% extends "calculator/format.html" %}
+{% extends 'calculator/base.html' %}
 
 {% block title %}
     Home
@@ -13,22 +13,28 @@
 
 {% block body %}
     {% if user.is_authenticated %}
-        <div class="container container-fluid text-center mt-4 pt-3">
-            <div class="form-home-container justify-content-center">
+        <div class="container container-fluid text-center">
+            <div class="justify-content-center">
                 <span><img src="https://img.icons8.com/clouds/200/000000/meeting.png" /></span>
-                <div class="home-head h2 mt-2">
+                <div class="home-head h2">
                     Hi! <span id="username">{{ user.username }}</span>, <br>
                     Welcome Back :)
                 </div>
-                <a class="form-home-button btn btn-outline-info btn-lg mt-3 mr-3" href="{% url 'search' %}" role="button">Find People</a>
-                <a class="form-home-button btn btn-outline-warning btn-lg mt-3 ml-3" href="{% url 'calculator' %}" role="button">Calculator</a>
+				<div class="row">
+					<div class="col-md-6">
+						<a class="form-control form-control-lg btn btn-outline-info btn-lg" href="{% url 'search' %}">Find People</a>
+					</div>
+					<div class="col-md-6">
+						<a class="form-control form-control-lg btn btn-outline-info btn-lg" href="{% url 'calculator' %}">Calculator</a>
+					</div>						
+				</div>
             </div>
         </div>
     {% else %}
-        <div class="container container-fluid text-center mt-4 pt-3">
-            <div class="form-home-container justify-content-center">
+        <div class="container container-fluid text-center">
+            <div class="justify-content-center">
                 <span><img src="https://img.icons8.com/clouds/200/000000/meeting.png" /></span>
-                <div class="home-head h2 mt-2 mr-auto ml-0">
+                <div class="home-head h2">
                     <span id="username">Welcome</span>,<br>
                         Log In to be more conscious.
                 </div>

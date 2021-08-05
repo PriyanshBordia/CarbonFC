@@ -1,31 +1,34 @@
-<!-- "registration/login.html" -->
+<!-- templates/registration/login.html -->
 
-{% extends "calculator/format.html" %}
+{% extends 'calculator/base.html' %}
 
 {% block title %}
     Login
 {% endblock %}
 
 {% block head %}
-
+	{% load static %}
+	{% load bootstrap4 %}
+	{% load fontawesome_5 %}
 {% endblock %}
 
 {% block body %}
-    <div class="container container-fluid text-center mt-3 ml-auto mr-auto">
-        <div class="login-action-container justify-content-centre">
-            <span><img src="https://img.icons8.com/officel/100/000000/login-as-user.png" /></span>
-            <br>
-            <h2 class="login-action-head mt-3">Log In to fly high.!</h2>
-            <hr>
-            <form method="POST">
-                <div class="form-group mt-3 mb-2 pt-3">
-    
-                    {% csrf_token %}
-    
-                    {{ form.as_p }}
-    
-                    <input class="form-control login-action-button btn btn-outline-info mt-2 ml-5" type="submit" value="Log In">
-                </div>
+    <div class="auth container container-fluid text-center">
+        <div class="auth__grid justify-content-center">
+			<img class="auth__grid__img" src="https://img.icons8.com/clouds/200/000000/lock--v1.png" />
+			<br>
+			<h2 class="auth__grid__title">Log In to enter the marketplace.!</h2>
+			<hr>
+            <form class="form-group" method="POST">
+                {% csrf_token %}
+                
+                {% bootstrap_form form layout='horizontal' %}
+				
+				<div class="row">
+					<div class="col-md-12">
+						{% bootstrap_button "Log In" button_class="form-control form-control-lg btn btn-outline-info btn-lg" button_type="submit" %}
+					</div>
+				</div>
             </form>
         </div>
     </div>

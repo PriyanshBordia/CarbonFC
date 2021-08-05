@@ -49,8 +49,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_extensions',
     'django.contrib.humanize',
+   	'django_extensions',
+   	# 'django_humanize',
+   	# 'humanize',
+   	'bootstrap4',
+   	'fontawesome_5',
     'accounts',
 ]
 

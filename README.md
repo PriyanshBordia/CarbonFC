@@ -7,4 +7,4 @@
 [![GitHub license](https://img.shields.io/github/license/PriyanshBordia/CarbonFC)](https://github.com/PriyanshBordia/CarbonFC/blob/main/LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/carbonfc/badge/?version=latest)](https://carbonfc.readthedocs.io/en/latest/?badge=latest)
 
-It is a Carbon Footprint Calculator that calculates the daily carbon footprint of an individual.
+It is a calculator that calculates the daily carbon footprint of an individual.

@@ -1,7 +1,7 @@
 from django import forms
 from .models import *
 
-class PersonDetailsForm(forms.ModelForm):
+class PersonForm(forms.ModelForm):
 
     class Meta:
         model = Person

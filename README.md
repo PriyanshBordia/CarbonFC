@@ -9,3 +9,4 @@
 [![Documentation Status](https://readthedocs.org/projects/carbonfc/badge/?version=latest)](https://carbonfc.readthedocs.io/en/latest/?badge=latest)
 
 - It is a calculator that calculates the daily carbon footprint of an individual and motivates to reduce to reach net zero.
+Fri Oct 22 23:59:22 IST 2021

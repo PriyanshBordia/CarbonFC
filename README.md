@@ -8,7 +8,6 @@
 [![GitHub license](https://img.shields.io/github/license/PriyanshBordia/CarbonFC)](https://github.com/PriyanshBordia/CarbonFC/blob/main/LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/carbonfc/badge/?version=latest)](https://carbonfc.readthedocs.io/en/latest/?badge=latest)
 
-- It is a calculator that calculates the daily carbon footprint of an individual and motivates to reduce to reach net zero.
-Fri Oct 22 23:59:22 IST 2021
-Sun Oct 24 17:50:25 IST 2021
-Sun Oct 31 11:01:48 IST 2021
+- It is a calculator that calculates the daily carbon footprint of an individual
+  and motivates to reduce to reach net zero. Fri Oct 22 23:59:22 IST 2021 Sun
+  Oct 24 17:50:25 IST 2021 Sun Oct 31 11:01:48 IST 2021

@@ -11,3 +11,4 @@
 - It is a calculator that calculates the daily carbon footprint of an individual and motivates to reduce to reach net zero.
 Fri Oct 22 23:59:22 IST 2021
 Sun Oct 24 17:50:25 IST 2021
+Sun Oct 31 11:02:37 IST 2021

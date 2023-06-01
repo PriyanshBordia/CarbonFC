@@ -5,7 +5,7 @@ braintree==4.11.0
 certifi==2022.12.7
 cffi==1.14.6
 chardet==4.0.0
-cryptography==39.0.1
+cryptography==41.0.0
 Django==3.2.19
 django-appconf==1.0.4
 django-bootstrap-datepicker-plus==3.0.5

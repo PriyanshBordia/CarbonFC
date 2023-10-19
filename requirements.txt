@@ -41,7 +41,7 @@ suds-jurko==0.6
 termcolor==1.1.0
 termcolor2==0.0.3
 toml==0.10.2
-urllib3==1.26.5
+urllib3==1.26.18
 Werkzeug==2.2.3
 whitenoise==5.2.0
 xmltodict==0.12.0
